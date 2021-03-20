@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import { NavBar } from '../components/index';
 
 export default function Home() {
   return (
@@ -8,7 +9,7 @@ export default function Home() {
         <link rel="icon" href="/ironmanicon.png" />
       </Head>
       <main>
-        <h1>Home Page</h1>
+        <NavBar />
       </main>
     </div>
   )
