@@ -1,5 +1,5 @@
-import Image from 'next/image';
-import { NavigationBar, UnorderList, ItemList } from './styles';
+import Image from 'next/image'
+import { NavigationBar, UnorderList, ItemList } from './styles'
 
 export default function NavBar() {
     return (

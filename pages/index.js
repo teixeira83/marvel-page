@@ -1,5 +1,6 @@
 import Head from 'next/head'
-import { NavBar, Title } from '../components/index';
+import { NavBar, Title, Card } from '../components/index'
+import { CardContainer } from './styles'
 
 export default function Home() {
   return (
@@ -11,6 +12,10 @@ export default function Home() {
       <NavBar />
       <main>
         <Title title='MARVEL CHARACTERS'/>
+
+        <CardContainer>
+          <Card />
+        </CardContainer>
       </main>
     </div>
   )
