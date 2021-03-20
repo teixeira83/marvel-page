@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 
 export const CardContainer = styled.div`
-    width: 100%;
+    width: 90vw;
+    margin: 0 auto;
     min-height: 70vh;
-    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 `

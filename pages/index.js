@@ -14,7 +14,21 @@ export default function Home() {
         <Title title='MARVEL CHARACTERS'/>
 
         <CardContainer>
-          <Card />
+          <Card name='Rafael'/>
+          <Card name='Rafael'/>
+          <Card name='Rafael'/>
+          <Card name='Rafael'/>
+          <Card name='Rafael'/>
+          <Card name='Rafael'/>
+          <Card name='Rafael'/>
+          <Card name='Rafael'/><Card name='Rafael'/>
+          <Card name='Rafael'/>
+          <Card name='Rafael'/>
+          <Card name='Rafael'/>
+          <Card name='Rafael'/>
+          <Card name='Rafael'/>
+          <Card name='Rafael'/>
+          <Card name='Rafael'/>
         </CardContainer>
       </main>
     </div>
