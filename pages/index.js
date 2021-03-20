@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { NavBar } from '../components/index';
+import { NavBar, Title } from '../components/index';
 
 export default function Home() {
   return (
@@ -8,8 +8,9 @@ export default function Home() {
         <title>Marvel Page</title>
         <link rel="icon" href="/ironmanicon.png" />
       </Head>
+      <NavBar />
       <main>
-        <NavBar />
+        <Title title='MARVEL CHARACTERS'/>
       </main>
     </div>
   )
