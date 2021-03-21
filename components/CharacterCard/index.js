@@ -5,7 +5,7 @@ export default function CharacterCard(props) {
     return (
         <Container>
             <Image 
-                src='/ironmanicon.png'
+                src={props.thumbnail}
                 width={256}
                 height={256}
             />

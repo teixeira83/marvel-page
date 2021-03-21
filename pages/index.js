@@ -1,8 +1,18 @@
+import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
 import { NavBar, Title, Card } from '../components/index'
 import { CardContainer } from './styles'
+import { getReqParams, getCharacters } from '../services/characters'
 
-export default function Home() {
+export default function Home(props) {
+  const [paginationData, setPaginationData] = useState({})
+  const [characters, setCharacters] = useState([])
+
+  useEffect(() => {
+    setPaginationData(props.paginationData)
+    setCharacters(props.characters)
+  })
+
   return (
     <div>
       <Head>
@@ -14,23 +24,22 @@ export default function Home() {
         <Title title='MARVEL CHARACTERS'/>
 
         <CardContainer>
-          <Card name='Rafael'/>
-          <Card name='Rafael'/>
-          <Card name='Rafael'/>
-          <Card name='Rafael'/>
-          <Card name='Rafael'/>
-          <Card name='Rafael'/>
-          <Card name='Rafael'/>
-          <Card name='Rafael'/><Card name='Rafael'/>
-          <Card name='Rafael'/>
-          <Card name='Rafael'/>
-          <Card name='Rafael'/>
-          <Card name='Rafael'/>
-          <Card name='Rafael'/>
-          <Card name='Rafael'/>
-          <Card name='Rafael'/>
+          {characters.map(character => {
+            return <Card name={character.name}
+                      thumbnail={character.thumbnail}
+                    />
+                  })
+          }
         </CardContainer>
       </main>
     </div>
   )
+}
+
+Home.getInitialProps = async (ctx) => {
+
+  const params  = await getReqParams()
+  const [paginationData,characters] = await getCharacters(params)
+
+  return {paginationData,characters}
 }
