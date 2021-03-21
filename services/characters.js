@@ -1,11 +1,11 @@
 import axios from 'axios'
 import MD5 from "crypto-js/md5"
 
-export function getReqParams(){
+export function getReqParams(currentPagination){
     
     const ts = new Date().getTime()
-    const privateKey = process.env.REACT_APP_PRIVATE_KEY
-    const publicKey = process.env.REACT_APP_PUBLIC_KEY
+    const privateKey = process.env.NEXT_PUBLIC_PRIVATE_KEY
+    const publicKey = process.env.NEXT_PUBLIC_KEY
     
     const hash = MD5(ts+privateKey+publicKey).toString()
 
@@ -14,27 +14,20 @@ export function getReqParams(){
         apikey: publicKey,
         hash,
         limit: 20,
-        offset: 0
+        offset: currentPagination
     }
 
     return params
 }
 
 export async function getCharacters(params) {
-    
-  const url = process.env.REACT_APP_URL
+  
+  const url = process.env.NEXT_PUBLIC_URL
 
-  const apiResponse = await axios.get(url, { params })
+  const rawCharactersList = await axios.get(url, { params })
     .then(res => {
-      return res.data.data
+      return res.data.data.results
     })
-
-  const paginationData = {
-    offset: apiResponse.offset,
-    total: apiResponse.total
-  }
-
-  const rawCharactersList = apiResponse.results
 
   const charactersList = rawCharactersList.map( c => {
     
@@ -50,5 +43,5 @@ export async function getCharacters(params) {
     return character
   })
 
-  return [paginationData, charactersList]
+  return charactersList
 }

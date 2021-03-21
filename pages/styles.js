@@ -9,3 +9,4 @@ export const CardContainer = styled.div`
     flex-wrap: wrap;
     justify-content: center;
 `
+

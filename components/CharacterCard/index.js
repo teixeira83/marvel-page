@@ -6,8 +6,8 @@ export default function CharacterCard(props) {
         <Container>
             <Image 
                 src={props.thumbnail}
-                width={256}
-                height={256}
+                width={250}
+                height={300}
             />
             <CharacterName>{props.name}</CharacterName>
         </Container>
