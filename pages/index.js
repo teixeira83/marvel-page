@@ -1,10 +1,20 @@
 import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
 import { NavBar, Title, Card } from '../components/index'
-import { CardContainer } from './styles'
 import { getReqParams, getCharacters } from '../services/characters'
 import InfinityScroll from 'react-infinite-scroll-component'
 import { useRouter } from 'next/router';
+import styled from 'styled-components';
+
+export const CardContainer = styled.div`
+    width: 90vw;
+    margin: 0 auto;
+    min-height: 70vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+`
 
 export default function Home(props) {
   const router = useRouter()

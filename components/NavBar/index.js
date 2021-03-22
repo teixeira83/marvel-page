@@ -9,7 +9,7 @@ export default function NavBar() {
             <Image 
                 src='/logo.png'
                 width={82}
-                height={56}
+                height={64}
             />
             <UnorderList>
                 <ItemList>

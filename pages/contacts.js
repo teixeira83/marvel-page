@@ -25,7 +25,7 @@ const ContactInformationBox = styled.div`
     margin-top: 5vh;
 `
 
-const LinkText = styled.span`
+const LinkText = styled.a`
     width: 100%;
     text-align: center;
     margin: auto auto;
@@ -47,11 +47,11 @@ export default function Contacts() {
                     <span style={{ fontSize: '20px', fontWeight: 'bold', marginTop: '-50px' }}>Este Projeto foi desenvolvido por Rafael Teixeira.</span>
                     <ContactInformationBox>
                         <ContactIcon icon='/github-icon.png'/>
-                        <LinkText>github.com/teixeira83</LinkText>
+                        <LinkText href='https://github.com/teixeira83/'>github.com/teixeira83</LinkText>
                     </ContactInformationBox>
                     <ContactInformationBox>
                         <ContactIcon icon='/linkedin-icon.png'/>
-                        <LinkText>linkedin.com/in/rafaelalvesdemedeirosteixeira/</LinkText>
+                        <LinkText href='https://www.linkedin.com/in/rafaelalvesdemedeirosteixeira/'>linkedin.com/in/rafaelalvesdemedeirosteixeira/</LinkText>
                     </ContactInformationBox>
                 </ContactContainer>
             </Container>

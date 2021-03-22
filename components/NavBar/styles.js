@@ -20,4 +20,8 @@ export const ItemList = styled.li`
     color: #ffffff;
     font-weight: bold;
     font-size: 14px;
+
+    a{
+        font-size: 18px;
+    }
 `

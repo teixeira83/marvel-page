@@ -1,25 +1,26 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { NavBar, Title } from '../../components/index'
-import { Container, TextContainer } from './styles'
 import Image from 'next/image'
 import { getReqParams, getCharaterByName} from '../../services/characters'
+import styled from 'styled-components'
+
+export const Container = styled.div`
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10vw;
+`
+
+export const TextContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    font-size: 24px;
+    width: 35vw;
+    span {
+        margin-top: 5vh;
+    }
+`
 
 export default function Character(props) {
-    
-    const [characterInformations, setCharacterInformations] = useState({
-        id: '', 
-        name: '', 
-        description: '', 
-        thumbnail: '',
-        comics: {
-            items: [],
-            count: 0
-        }
-    })
-
-    useEffect(() => {
-        setCharacterInformations(props.character)
-    }, [])
 
     return (
         <React.Fragment>
@@ -33,9 +34,6 @@ export default function Character(props) {
                 <TextContainer>
                     <span>Description: {props.character.description || 'This character do not have a description yet.'}</span>
                     <span>Comics: {`The character was present in ${props.character.comics.count} Comics.` || 'This character do not have comics yet.'} </span>
-                    {/* {characterInformations.comics.count > 0 ? characterInformations.comics.items.map(comic => {
-                        return <span key={characterInformations.id}>{comic}</span>
-                    }) : false} */}
                 </TextContainer>
             </Container>
         </React.Fragment>
