@@ -16,3 +16,7 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.perfil {
+  border-radius: 200px;
+}
