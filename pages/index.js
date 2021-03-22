@@ -4,8 +4,10 @@ import { NavBar, Title, Card } from '../components/index'
 import { CardContainer } from './styles'
 import { getReqParams, getCharacters } from '../services/characters'
 import InfinityScroll from 'react-infinite-scroll-component'
+import { useRouter } from 'next/router';
 
 export default function Home(props) {
+  const router = useRouter()
   const [characters, setCharacters] = useState([])
   
   useEffect(() => {
@@ -22,7 +24,7 @@ export default function Home(props) {
   }
 
   return (
-    <div>
+    <React.Fragment>
       <Head>
         <title>Marvel Page</title>
         <link rel="icon" href="/ironmanicon.png" />
@@ -38,16 +40,18 @@ export default function Home(props) {
             hasMore={true}
             style={{ display: 'flex', flexWrap: 'wrap' }}>
             {characters.map(character => {
-              return <Card key={character.name}
+              return <a onClick={(e) => {
+                router.push(`/character?name=${character.name}`)
+              }}>
+                      <Card key={character.id}
                         name={character.name}
                         thumbnail={character.thumbnail}
-                      />
-                    })
-            }
+                      /></a>
+            })}
           </InfinityScroll>
         </CardContainer>
       </main>
-    </div>
+    </React.Fragment>
   )
 }
 

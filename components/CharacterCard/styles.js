@@ -9,6 +9,7 @@ export const Container = styled.div`
     height: 35vh;
     max-height: 35vh;
     margin: 15px;
+    cursor: pointer;
 `
 export const CharacterName = styled.span`
     text-align: center;

@@ -32,10 +32,12 @@ export async function getCharacters(params) {
   const charactersList = rawCharactersList.map( c => {
     
     const character = {
+      id: '',
       name: '',
       thumbnail: ''
     }
-
+    
+    character.id = c.id
     character.name = c.name
     const thumbnailPathWithExtension = c.thumbnail.path + '.' + c.thumbnail.extension
     character.thumbnail = thumbnailPathWithExtension
@@ -44,4 +46,28 @@ export async function getCharacters(params) {
   })
 
   return charactersList
+}
+
+export async function getCharaterByName(params, name) {
+  
+  const url = process.env.NEXT_PUBLIC_URL
+
+  params.name = name
+
+  const [rawCharacter] = await axios.get(url, { params })
+    .then(res => {
+      return res.data.data.results
+    })
+
+  const character = {
+    id: rawCharacter.id, 
+    name: rawCharacter.name, 
+    description: rawCharacter.description, 
+    thumbnail: rawCharacter.thumbnail.path + '.' + rawCharacter.thumbnail.extension,
+    comics: {
+      items: rawCharacter.comics.items,
+      count: rawCharacter.comics.returned
+    }
+  }
+  return character
 }

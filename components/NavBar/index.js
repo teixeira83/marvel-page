@@ -1,7 +1,9 @@
 import Image from 'next/image'
 import { NavigationBar, UnorderList, ItemList } from './styles'
+import { useRouter } from 'next/router'
 
 export default function NavBar() {
+    const router = useRouter()
     return (
         <NavigationBar>
             <Image 
@@ -11,10 +13,16 @@ export default function NavBar() {
             />
             <UnorderList>
                 <ItemList>
-                    <a href='/'>Home</a>
+                    <a href='/' onClick={(e) => {
+                        e.preventDefault()
+                        router.push('/')
+                    }}>Home</a>
                 </ItemList>
                 <ItemList>
-                    <a href='/'>Contacts</a>
+                    <a href='/contacts' onClick={(e) => {
+                        e.preventDefault()
+                        router.push('/contacts')
+                    }}>Contacts</a>
                 </ItemList>
             </UnorderList>
         </NavigationBar>
